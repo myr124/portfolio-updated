@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Lora } from "next/font/google";
 import "./globals.css";
+import BackgroundMusic from "./components/BackgroundMusic";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -30,6 +31,7 @@ export default function RootLayout({
         className={`${playfair.variable} ${lora.variable} font-serif antialiased`}
       >
         {children}
+        <BackgroundMusic />
       </body>
     </html>
   );

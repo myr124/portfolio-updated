@@ -123,3 +123,47 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Background Music Player Styles */
+.volume-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #d4b5a0;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.volume-slider::-webkit-slider-thumb:hover {
+  background: #e8d5c4;
+}
+
+.volume-slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border: none;
+  border-radius: 50%;
+  background: #d4b5a0;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.volume-slider::-moz-range-thumb:hover {
+  background: #e8d5c4;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
