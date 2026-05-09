@@ -14,14 +14,14 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[#2b1f1a]/80 backdrop-blur-sm border-b border-[#3d2e28]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-16 gap-4">
           {/* Left: Name */}
-          <div className="text-[#e8d5c4] text-lg font-serif font-semibold tracking-wide">
+          <div className="shrink-0 text-[#e8d5c4] text-base font-serif font-semibold tracking-wide sm:text-lg">
             Eric George
           </div>
 
           {/* Center: Navigation Links */}
-          <div className="flex items-center space-x-12">
+          <div className="hidden items-center space-x-6 md:flex lg:space-x-12">
             <a
               href="#about"
               onClick={(e) => scrollToSection(e, 'about')}
@@ -53,7 +53,7 @@ export default function Navbar() {
           </div>
 
           {/* Right: Social Links */}
-          <div className="flex items-center space-x-4">
+          <div className="flex shrink-0 items-center space-x-3 sm:space-x-4">
             <a
               href="https://github.com/myr124"
               target="_blank"
