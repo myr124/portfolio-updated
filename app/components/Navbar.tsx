@@ -1,5 +1,7 @@
 'use client';
 
+import Link from 'next/link';
+
 export default function Navbar() {
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
     e.preventDefault();
@@ -43,6 +45,12 @@ export default function Navbar() {
             >
               Projects
             </a>
+            <Link
+              href="/blog"
+              className="text-[#d4b5a0] hover:text-[#e8d5c4] transition-colors duration-200 text-sm tracking-widest uppercase font-light"
+            >
+              Blog
+            </Link>
             <a
               href="#contact"
               onClick={(e) => scrollToSection(e, 'contact')}
