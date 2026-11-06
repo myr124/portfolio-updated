@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import TypingAnimation from '../components/TypingAnimation';
+import ScrollReveal from '../components/ScrollReveal';
 import { getAllPosts, formatDate } from '@/lib/blog';
 
 export const metadata: Metadata = {
@@ -16,13 +18,21 @@ export default function BlogIndex() {
         <Link href="/" className="text-sm uppercase tracking-widest text-[#d4b5a0] hover:text-[#e8d5c4]">
           ← Home
         </Link>
-        <h1 className="mt-6 mb-12 font-serif text-4xl font-semibold">Blog</h1>
+        <TypingAnimation
+          text="Blog"
+          className="mt-6 mb-12 font-serif text-5xl font-bold tracking-wide sm:text-6xl"
+        />
 
-        {posts.length === 0 && <p className="text-[#d4b5a0]">No posts yet.</p>}
+        {posts.length === 0 && (
+          <ScrollReveal>
+            <p className="text-[#d4b5a0]">No posts yet.</p>
+          </ScrollReveal>
+        )}
 
         <ul className="space-y-10">
-          {posts.map((post) => (
+          {posts.map((post, index) => (
             <li key={post.slug}>
+              <ScrollReveal delay={0.1 * Math.min(index, 3)}>
               <Link href={`/blog/${post.slug}`} className="group block">
                 <time className="text-sm text-[#d4b5a0]">{formatDate(post.date)}</time>
                 <h2 className="mt-1 font-serif text-2xl font-semibold group-hover:underline">{post.title}</h2>
@@ -37,6 +47,7 @@ export default function BlogIndex() {
                   </div>
                 )}
               </Link>
+              </ScrollReveal>
             </li>
           ))}
         </ul>

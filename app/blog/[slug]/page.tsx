@@ -4,6 +4,8 @@ import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import remarkGfm from 'remark-gfm';
 import rehypePrettyCode from 'rehype-pretty-code';
+import TypingAnimation from '../../components/TypingAnimation';
+import ScrollReveal from '../../components/ScrollReveal';
 import { getAllPosts, getPost, formatDate } from '@/lib/blog';
 
 type Props = { params: Promise<{ slug: string }> };
@@ -34,9 +36,13 @@ export default async function PostPage({ params }: Props) {
         </Link>
         <header className="mt-6 mb-10">
           <time className="text-sm text-[#d4b5a0]">{formatDate(post.date)}</time>
-          <h1 className="mt-2 font-serif text-4xl font-semibold">{post.title}</h1>
+          <TypingAnimation
+            text={post.title}
+            className="mt-2 font-serif text-4xl font-bold tracking-wide sm:text-5xl"
+          />
         </header>
 
+        <ScrollReveal delay={0.2}>
         <div className="prose prose-invert prose-lg max-w-none prose-headings:font-serif prose-a:text-[#d4b5a0] prose-pre:bg-transparent prose-pre:p-0">
           <MDXRemote
             source={post.content}
@@ -48,6 +54,7 @@ export default async function PostPage({ params }: Props) {
             }}
           />
         </div>
+        </ScrollReveal>
       </article>
     </main>
   );
